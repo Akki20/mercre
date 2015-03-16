@@ -1,0 +1,9 @@
+*.pyc
+*.swp
+*.egg
+
+.DS_Store
+__pycache__
+
+test/
+dist
