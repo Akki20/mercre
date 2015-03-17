@@ -17,15 +17,13 @@ __version__ = "0.1"
 __date__    = "11 Mar 2015"
 
 import os
-from datetime import datetime
 import re
 import shutil
+from datetime import datetime
 
-from .packages import merger
+from .packages   import merger
 from .dateformat import dateformat
-
-from pprint import pprint
-import random
+from .compat     import is_osx
 
 def execute(dir_src, dir_dst, pattern, symlinks=False, ignore=list()):
     """
@@ -49,8 +47,9 @@ def execute(dir_src, dir_dst, pattern, symlinks=False, ignore=list()):
     # target_data[2]:   date以降の文字列
     target_data = list()
 
-    # mac環境でディレクトリの名前をpythonで探すと、 "/" が ":" に変化するらしいので、それに合わせた対応
-    pattern = pattern.replace('/', ':')
+    if is_osx:
+        # mac環境でディレクトリの名前をpythonで探すと、 "/" が ":" に変化するらしいので、それに合わせた対応
+        pattern = pattern.replace('/', ':')
 
     # フォルダリストから、日付データとパスのセットをゲット
     target_data = _analyze_pathname(dirs, pattern)
@@ -59,9 +58,6 @@ def execute(dir_src, dir_dst, pattern, symlinks=False, ignore=list()):
     # マージをするフォルダが存在しないので、Falseを返す
     if len(target_data) == 0:
         return False
-
-    # シャッフル(テスト)
-    random.shuffle(target_data)
 
     # 未来日付は対象外にする
     now = datetime.now()

@@ -16,8 +16,8 @@ __status__ = "OK"
 __version__ = "0.1"
 __date__    = "11 Mar 2015"
 
-from datetime import datetime
 import re
+from datetime import datetime
 
 def dateformat(string, pattern):
     dst = pattern
