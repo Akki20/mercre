@@ -54,4 +54,8 @@ COMPLETE_MESSAGE =\
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'''
 
 #[IGNORE]
-IGNORE = []
+IGNORE = [
+    '.*',
+    'Thumbs.db',
+    'nbproject'
+]
