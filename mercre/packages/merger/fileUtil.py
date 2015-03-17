@@ -20,24 +20,35 @@ import re
 import os
 import shutil
 
-def copytree_overwritte(src, dst, symlinks=False):
+def copytree_overwritte(src, dst, symlinks=False, ignore=None):
     """
     srcディレクトリから、dstディレクトリにフォルダごと、
     上書きコピーを行います
     """
     names = os.listdir(src)
+
+    if ignore is not None:
+        ignored_names = ignore(src, names)
+    else:
+        ignored_names = set()
+
     if not os.path.exists(dst):
         os.makedirs(dst)
     errors = []
+
     for name in names:
+        if name in ignored_names:
+            continue
+
         srcname = os.path.join(src, name)
         dstname = os.path.join(dst, name)
+
         try:
             if symlinks and os.path.islink(srcname):
                 linkto = os.readlink(srcname)
                 os.symlink(linkto, dstname)
             elif os.path.isdir(srcname):
-                copytree_overwritte(srcname, dstname, symlinks)
+                copytree_overwritte(srcname, dstname, symlinks, ignore)
             else:
                 shutil.copy2(srcname, dstname)
             # XXX What about devices, sockets etc.?

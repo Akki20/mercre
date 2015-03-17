@@ -21,12 +21,13 @@ from config import (
     DATE_FORMAT_PATTERN,
     SOURCE_FOLDER,
     OUTPUT_FOLDER,
-    COMPLETE_MESSAGE
+    COMPLETE_MESSAGE,
+    IGNORE
 )
 
 def main():
     mercre.merge(SOURCE_FOLDER, OUTPUT_FOLDER, \
-                DATE_FORMAT_PATTERN, False)
+                DATE_FORMAT_PATTERN, False, IGNORE)
     print(COMPLETE_MESSAGE)
 
 if __name__ == '__main__':

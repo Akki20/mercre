@@ -16,12 +16,12 @@ __status__ = "OK"
 __version__ = "0.1"
 __date__    = "11 Mar 2015"
 
-import processing
+from .processing import execute
 
-def merge(dir_src, dir_dst, pattern, symlinks=False):
+def merge(dir_src, dir_dst, pattern, symlinks=False, ignore=list()):
     if _isNotNone(dir_src, dir_dst, pattern) and \
        _isNotEmpty(dir_src, dir_dst, pattern):
-        status_code = processing.execute(dir_src, dir_dst, pattern, symlinks)
+        status_code = execute(dir_src, dir_dst, pattern, symlinks, ignore)
         # マージが実行されなかった時に、falseが返ってくるので、
         # その時は警告を発する
         if status_code == False:

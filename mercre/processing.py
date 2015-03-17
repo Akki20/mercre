@@ -21,13 +21,13 @@ from datetime import datetime
 import re
 import shutil
 
-import packages.merger as merger
-from dateformat import dateformat
+from .packages import merger
+from .dateformat import dateformat
 
 from pprint import pprint
 import random
 
-def execute(dir_src, dir_dst, pattern, symlinks=False):
+def execute(dir_src, dir_dst, pattern, symlinks=False, ignore=list()):
     """
     マージ処理を実行するメイン関数です。
 
@@ -81,7 +81,7 @@ def execute(dir_src, dir_dst, pattern, symlinks=False):
         shutil.rmtree(dir_dst)
 
     # マージ作業
-    merger.merge(paths, dir_dst, symlinks)
+    merger.merge(paths, dir_dst, symlinks, shutil.ignore_patterns(*ignore))
 
     # マージに成功したので、Trueを返す
     return True
@@ -168,7 +168,7 @@ def _isNotNone(*args):
 
 
 if __name__ == '__main__':
-    execute('../test/src/', '../test/out/', pattern="%Y.%m.%d_%H%M")
+    execute('../test/src/', '../test/out/', pattern="%Y.%m.%d_%H%M", ignore=['2014_01_01_hogehoge1.txt'])
     # for item in getdirs('../test/src/2014_01_01_2014_01_01_hogehoge1'):
     #     print(os.path.basename(item))
     # pprint(getdirs('../test/src/2014_01_01_2014_01_01_hogehoge1'))
