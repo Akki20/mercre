@@ -19,6 +19,10 @@ __date__    = "11 Mar 2015"
 import os
 
 def join(*args):
+    """
+    パスの結合
+    USAGE: join(path[, path....])
+    """
     path = ''
     for e in args:
         path = os.path.join(path, e)
