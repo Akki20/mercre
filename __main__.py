@@ -25,10 +25,13 @@ from config import (
     IGNORE
 )
 
+OKGREEN = '\033[92m'
+ENDC = '\033[0m'
+
 def main():
     mercre.merge(SOURCE_FOLDER, OUTPUT_FOLDER, \
                 DATE_FORMAT_PATTERN, False, IGNORE)
-    print(COMPLETE_MESSAGE)
+    print(OKGREEN + COMPLETE_MESSAGE + ENDC)
 
 if __name__ == '__main__':
     main()
