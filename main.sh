@@ -18,6 +18,6 @@ if type python >/dev/null 2>&1; then
   exit 0
 fi
 
-echo python is not found!
-echo Please install python!!
+echo "python is not found!"
+echo "Please install python!!"
 exit 1
