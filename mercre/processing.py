@@ -65,7 +65,7 @@ def execute(dir_src, dir_dst, pattern, symlinks=False, ignore=list()):
     target_data = [x for x in target_data if x[1] < now]
 
     # 同じカテゴリーネームは最新のものを適応
-    target_data = _uniq_category(target_data)
+    #target_data = _uniq_category(target_data)
 
     # ソート
     target_data.sort(key=lambda x: x[1])
