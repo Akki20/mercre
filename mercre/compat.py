@@ -12,7 +12,7 @@
 # Licence:     The MIT License (MIT)
 #---------------------------------------------------------------------------
 
-__author__ = "Kosuke Akizuki <slife1080@gmail.com>"
+__author__ = "Kosuke Akizuki <waruoni.work@gmail.com>"
 __status__ = "OK"
 __version__ = "1.0"
 __date__    = "11 Mar 2015"
