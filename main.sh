@@ -3,10 +3,14 @@
 # @(#) wech.sh ver.1.0.0 2015.3.18
 #
 # Usage: ./mercre.sh
+# Author:      Kosuke Akizuki
 #
 # Description:
 #   mercre を動作させるスクリプト
 #
+# Created:     2015/3/18
+# Copyright:   (c) Kosuke Akizuki 2015
+# Licence:     The MIT License (MIT)
 ###########################################################################
 
 if type python3 >/dev/null 2>&1; then
