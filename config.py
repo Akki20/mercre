@@ -16,8 +16,9 @@ __status__ = "OK"
 __version__ = "1.0"
 __date__    = "11 Mar 2015"
 
-import os
+import os, sys
 
+is_windows = 'win32' in str(sys.platform).lower()
 def join(*args):
     """
     パスの結合
@@ -30,7 +31,11 @@ def join(*args):
     path = os.path.normpath(path)
     return path
 
-HOME = os.environ.get('HOME')
+if is_windows:
+    HOME = os.environ.get('USERPROFILE')
+else:
+    HOME = os.environ.get('HOME')
+
 
 """
 このツールで使われる設定群です
@@ -44,8 +49,11 @@ DATE_FORMAT_PATTERN = '%Y.%m.%d_%H%M'
 #OUTPUT_FOLDER = join(HOME, 'Desktop/ダウンロード/KIRIN/00_output')
 
 #[TEST]
-SOURCE_FOLDER = join(HOME, 'Desktop/mercre/test/src')
-OUTPUT_FOLDER = join(HOME, 'Desktop/mercre/test/out')
+SOURCE_FOLDER = [
+    join(HOME, 'Desktop/00_input/contents'),
+    join(HOME, 'Desktop/00_input/includes'),
+]
+OUTPUT_FOLDER = join(HOME, 'Desktop/out')
 
 #[MESSAGE]
 COMPLETE_MESSAGE =\
