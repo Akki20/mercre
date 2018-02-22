@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# @(#) wech.sh ver.1.0.0 2015.3.18
+# @(#) main.sh ver.1.0.0 2015.3.18
 #
 # Usage: ./mercre.sh
 # Author:      Kosuke Akizuki
@@ -9,7 +9,7 @@
 #   mercre を動作させるスクリプト
 #
 # Created:     2015/3/18
-# Copyright:   (c) Kosuke Akizuki 2015
+# Copyright:   (c) Kosuke Akizuki 2015-2018
 # Licence:     The MIT License (MIT)
 ###########################################################################
 

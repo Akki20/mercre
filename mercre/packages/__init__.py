@@ -29,7 +29,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 # Author:      Kosuke Akizuki
 #
 # Created:     2015/03/11
-# Copyright:   (c) Kosuke Akizuki 2015
+# Copyright:   (c) Kosuke Akizuki 2015-2018
 # Licence:     The MIT License (MIT)
 #---------------------------------------------------------------------------
 
